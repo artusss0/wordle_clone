@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle clone</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
     <script src="main.js"></script>
     <script src="words.js"></script>
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
@@ -59,6 +60,7 @@
             </div>
         </main>
         <section class="keyboard">
+            <!-- Pierwszy rząd -->
             <div class="keyboard-row">
                 <button class="key">Q</button>
                 <button class="key">W</button>
@@ -71,9 +73,13 @@
                 <button class="key">O</button>
                 <button class="key">P</button>
             </div>
+        
+            <!-- Drugi rząd -->
             <div class="keyboard-row">
                 <button class="key">A</button>
+                <button class="key">Ą</button> <!-- Polska litera -->
                 <button class="key">S</button>
+                <button class="key">Ś</button> <!-- Polska litera -->
                 <button class="key">D</button>
                 <button class="key">F</button>
                 <button class="key">G</button>
@@ -81,19 +87,31 @@
                 <button class="key">J</button>
                 <button class="key">K</button>
                 <button class="key">L</button>
+                <button class="key">Ł</button> <!-- Polska litera -->
             </div>
+        
+            <!-- Trzeci rząd -->
             <div class="keyboard-row">
-                <button class="key special-key enter-key">ENTER</button>
                 <button class="key">Z</button>
+                <button class="key">Ź</button> <!-- Polska litera -->
                 <button class="key">X</button>
+                <button class="key">Ć</button> <!-- Polska litera -->
                 <button class="key">C</button>
                 <button class="key">V</button>
                 <button class="key">B</button>
                 <button class="key">N</button>
+                <button class="key">Ń</button> <!-- Polska litera -->
                 <button class="key">M</button>
+                <button class="key">Ę</button> <!-- Polska litera -->
+                <button class="key">Ó</button> <!-- Polska litera -->
+                <button class="key">Ż</button> <!-- Polska litera -->
+            </div>
+            <div class="keyboard-row">
+                <button class="key special-key enter-key">SPRAWDŹ</button>
                 <button class="key special-key delete-key">⌫</button>
             </div>
         </section>
+        
     </div>
 </body>
 </html>

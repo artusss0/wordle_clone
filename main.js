@@ -25,9 +25,9 @@ function addLetter(letter) {
 
     currentLetterBox.classList.add('filled');
 
-    currentLetterBox.classList.add('animate');
+    currentLetterBox.classList.add('animateInsert');
     currentLetterBox.addEventListener('animationend', () => {
-        currentLetterBox.classList.remove('animate');
+        currentLetterBox.classList.remove('animateInsert');
     });
 
     letterNumber++;
@@ -42,7 +42,12 @@ function removeLetter() {
 
 function sendWord(word) {
     if(word.length !== 5) {
+        const currentRow = document.querySelector(`.row-${rowNumber}`);
+        console.log(currentRow)
+        currentRow.classList.add('animateWrong');
+        currentRow.addEventListener('animationend', () => {
+            currentRow.classList.remove('animateWrong');
+        });
         return;
     }
-    console.log(word);
 }

@@ -99,7 +99,7 @@ main {
     color: #ffffff;
 }
 
-@keyframes fadeIn {
+@keyframes insertLetter {
     0% {
         scale: 0.75;
     }
@@ -107,6 +107,28 @@ main {
         scale: 1;
     }
 }
-.animate {
-    animation: fadeIn 0.5s ease-out;
+
+@keyframes wrong {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animateInsert {
+    animation: insertLetter 0.5s ease-out;
+}
+.animateWrong {
+    animation: wrong 0.2s ease-out;
 }

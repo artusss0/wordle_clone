@@ -7,11 +7,8 @@ window.addEventListener('load', () => {
             if (key.classList.contains('delete-key')) {
                 removeLetter();
             } else if (key.classList.contains('enter-key')) {
-                let finalWord = '';
-                document.querySelector(`.row-${rowNumber}`).querySelectorAll('.letter').forEach(letter => {
-                    finalWord += letter.textContent;
-                })
-                sendWord(finalWord.toLowerCase());
+                let listOfWords = document.querySelector(`.row-${rowNumber}`).querySelectorAll('.letter')
+                checkWord(listOfWords);
             } else if (!key.classList.contains('special-key')) {
                 addLetter(key.textContent);
             }
@@ -20,36 +17,53 @@ window.addEventListener('load', () => {
 });
 
 function addLetter(letter) {
-    const currentLetterBox = document.querySelector(`.letter-${letterNumber}`); 
-    currentLetterBox.innerHTML = letter;
+    const currentLetterBox = document.querySelector(`.row-${rowNumber}>.letter-${letterNumber}`);
+    currentLetterBox.textContent = letter;
 
     currentLetterBox.classList.add('filled');
 
-    currentLetterBox.classList.add('animateInsert');
+    currentLetterBox.classList.add('animate-insert');
     currentLetterBox.addEventListener('animationend', () => {
-        currentLetterBox.classList.remove('animateInsert');
+        currentLetterBox.classList.remove('animate-insert');
     });
 
     letterNumber++;
 }
 
 function removeLetter() {
-    const letterBox = document.querySelector(`.letter-${letterNumber-1}`); 
-    letterBox.innerHTML = '';
+    if(letterNumber == 1) {
+        return;
+    }
+    const letterBox = document.querySelector(`.row-${rowNumber}>.letter-${letterNumber-1}`); 
+    letterBox.textContent = '';
     letterBox.classList.remove('filled');
     letterNumber--;
 }
 
-function sendWord(word) {
+function checkWord(listOfLetters) {
     const currentRow = document.querySelector(`.row-${rowNumber}`);
-    if(word.length !== 5 || !checkIfWordExist(word)) {
-        currentRow.classList.add('animateWrong');
+    const word = listToWord(listOfLetters);
+
+    if(listOfLetters.length !== 5 || !checkIfWordExist(word)) {
+        currentRow.classList.add('animate-wrong');
         currentRow.addEventListener('animationend', () => {
-            currentRow.classList.remove('animateWrong');
+            currentRow.classList.remove('animate-wrong');
         });
         return;
     }
-    if(isWordCorrect) {
-        
-    }
+
+    listOfLetters.forEach((letter, letterIndex) => {
+        letter.classList.add('animate-correct');
+        letter.addEventListener('animationstart', () => {
+            setTimeout(() => {
+                letter.classList.add(getLetterStatus(letter.textContent.toLowerCase(), letterIndex));
+            }, 200);
+        });
+        letter.addEventListener('animationend', () => {
+            letter.classList.remove('animate-correct');
+        });
+    })
+    rowNumber++;
+    letterNumber = 1;
+    
 }

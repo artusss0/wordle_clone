@@ -101,7 +101,7 @@ main {
 
 @keyframes insertLetter {
     0% {
-        scale: 0.75;
+        scale: 1.1;
     }
     100% {
         scale: 1;
@@ -126,9 +126,38 @@ main {
     }
 }
 
-.animateInsert {
-    animation: insertLetter 0.5s ease-out;
+@keyframes moveVertically {
+    0% {
+        transform: translateY(0); /* Początkowa pozycja */
+    }
+    50% {
+        transform: translateY(-20px); /* Ruch w górę (możesz zmienić wartość na dodatnią, jeśli chcesz ruch w dół) */
+    }
+    100% {
+        transform: translateY(0); /* Powrót do początkowej pozycji */
+    }
 }
-.animateWrong {
+
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+    }
+    50% {
+        transform: rotateX(-180deg);
+    }
+    100% {
+        transform: rotateX(-360deg);
+    }
+}
+
+
+.animate-insert {
+    animation: insertLetter 0.1s ease-out;
+}
+.animate-wrong {
     animation: wrong 0.2s ease-out;
 }
+.animate-correct {
+    animation: flip 0.4s ease-out;
+}
+

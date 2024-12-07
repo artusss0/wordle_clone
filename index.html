@@ -6,14 +6,25 @@
     <title>Wordle clone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="info-cards.css">
     <script src="main.js"></script>
     <script src="words.js"></script>
+    <script src="info-card.js"></script>
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
+        <div class="game-info">
+            
+        </div>
         <header class="baner">
             <h1>Wordle Clone <br><span>made by artusss0</span></h1>
+            <div class="info">
+                <div class="info_icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m12 1.5c-5.79844 0-10.5 4.70156-10.5 10.5 0 5.7984 4.70156 10.5 10.5 10.5 5.7984 0 10.5-4.7016 10.5-10.5 0-5.79844-4.7016-10.5-10.5-10.5zm.75 15.5625c0 .1031-.0844.1875-.1875.1875h-1.125c-.1031 0-.1875-.0844-.1875-.1875v-6.375c0-.1031.0844-.1875.1875-.1875h1.125c.1031 0 .1875.0844.1875.1875zm-.75-8.0625c-.2944-.00601-.5747-.12718-.7808-.3375-.206-.21032-.3215-.49305-.3215-.7875s.1155-.57718.3215-.7875c.2061-.21032.4864-.33149.7808-.3375.2944.00601.5747.12718.7808.3375.206.21032.3215.49305.3215.7875s-.1155.57718-.3215.7875c-.2061.21032-.4864.33149-.7808.3375z"></path></svg>
+                </div>
+                <div class="info_title"></div>
+            </div>
         </header>
         <main class="main">
             <div class="row row-1">
@@ -60,58 +71,55 @@
             </div>
         </main>
         <section class="keyboard">
-            <!-- Pierwszy rząd -->
             <div class="keyboard-row">
-                <button class="key">Q</button>
-                <button class="key">W</button>
-                <button class="key">E</button>
-                <button class="key">R</button>
-                <button class="key">T</button>
-                <button class="key">Y</button>
-                <button class="key">U</button>
-                <button class="key">I</button>
-                <button class="key">O</button>
-                <button class="key">P</button>
+                <button class="key" id="Q">Q</button>
+                <button class="key" id="W">W</button>
+                <button class="key" id="E">E</button>
+                <button class="key" id="Ę">Ę</button>
+                <button class="key" id="R">R</button>
+                <button class="key" id="T">T</button>
+                <button class="key" id="Y">Y</button>
+                <button class="key" id="U">U</button>
+                <button class="key" id="I">I</button>
+                <button class="key" id="O">O</button>
+                <button class="key" id="Ó">Ó</button>
+                <button class="key" id="P">P</button>
             </div>
-        
-            <!-- Drugi rząd -->
+            
             <div class="keyboard-row">
-                <button class="key">A</button>
-                <button class="key">Ą</button> <!-- Polska litera -->
-                <button class="key">S</button>
-                <button class="key">Ś</button> <!-- Polska litera -->
-                <button class="key">D</button>
-                <button class="key">F</button>
-                <button class="key">G</button>
-                <button class="key">H</button>
-                <button class="key">J</button>
-                <button class="key">K</button>
-                <button class="key">L</button>
-                <button class="key">Ł</button> <!-- Polska litera -->
+                <button class="key" id="A">A</button>
+                <button class="key" id="Ą">Ą</button>
+                <button class="key" id="S">S</button>
+                <button class="key" id="Ś">Ś</button>
+                <button class="key" id="D">D</button>
+                <button class="key" id="F">F</button>
+                <button class="key" id="G">G</button>
+                <button class="key" id="H">H</button>
+                <button class="key" id="J">J</button>
+                <button class="key" id="K">K</button>
+                <button class="key" id="L">L</button>
+                <button class="key" id="Ł">Ł</button>
             </div>
-        
-            <!-- Trzeci rząd -->
+            
             <div class="keyboard-row">
-                <button class="key">Z</button>
-                <button class="key">Ź</button> <!-- Polska litera -->
-                <button class="key">X</button>
-                <button class="key">Ć</button> <!-- Polska litera -->
-                <button class="key">C</button>
-                <button class="key">V</button>
-                <button class="key">B</button>
-                <button class="key">N</button>
-                <button class="key">Ń</button> <!-- Polska litera -->
-                <button class="key">M</button>
-                <button class="key">Ę</button> <!-- Polska litera -->
-                <button class="key">Ó</button> <!-- Polska litera -->
-                <button class="key">Ż</button> <!-- Polska litera -->
-            </div>
+                <button class="key" id="Z">Z</button>
+                <button class="key" id="Ź">Ź</button>
+                <button class="key" id="Ż">Ż</button>
+                <button class="key" id="X">X</button>
+                <button class="key" id="C">C</button>
+                <button class="key" id="Ć">Ć</button>
+                <button class="key" id="V">V</button>
+                <button class="key" id="B">B</button>
+                <button class="key" id="N">N</button>
+                <button class="key" id="Ń">Ń</button>
+                <button class="key" id="M">M</button>
+                
+            </div>            
             <div class="keyboard-row">
                 <button class="key special-key enter-key">SPRAWDŹ</button>
                 <button class="key special-key delete-key">⌫</button>
             </div>
         </section>
-        
     </div>
 </body>
 </html>

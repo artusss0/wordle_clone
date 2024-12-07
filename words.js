@@ -8,6 +8,7 @@ async function loadWords() {
     const data = await response.text();
     words = data.split('\n');
     wordToQuess = words[Math.floor(Math.random() * words.length)];
+    console.log(wordToQuess)
 }
 
 function listToWord(listOfLetters) {

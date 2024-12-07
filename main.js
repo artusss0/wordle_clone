@@ -17,6 +17,9 @@ window.addEventListener('load', () => {
 });
 
 function addLetter(letter) {
+    if(document.querySelector('.game-info').style.display == 'block') {
+        return;
+    }
     const currentLetterBox = document.querySelector(`.row-${rowNumber}>.letter-${letterNumber}`);
     currentLetterBox.textContent = letter;
 
@@ -31,6 +34,9 @@ function addLetter(letter) {
 }
 
 function removeLetter() {
+    if(document.querySelector('.game-info').style.display == 'block') {
+        return;
+    }
     if(letterNumber == 1) {
         return;
     }
@@ -41,29 +47,52 @@ function removeLetter() {
 }
 
 function checkWord(listOfLetters) {
+    if(document.querySelector('.game-info').style.display == 'block') {
+        return;
+    }
     const currentRow = document.querySelector(`.row-${rowNumber}`);
     const word = listToWord(listOfLetters);
 
-    if(listOfLetters.length !== 5 || !checkIfWordExist(word)) {
+    if(word.length < 5) {
         currentRow.classList.add('animate-wrong');
         currentRow.addEventListener('animationend', () => {
             currentRow.classList.remove('animate-wrong');
         });
+        displayInfo("Słowo musi mieć 5 liter!")
+        return;
+    }
+    if(!checkIfWordExist(word)) {
+        currentRow.classList.add('animate-wrong');
+        currentRow.addEventListener('animationend', () => {
+            currentRow.classList.remove('animate-wrong');
+        });
+        displayInfo("Nie ma takiego słowa!")
         return;
     }
 
     listOfLetters.forEach((letter, letterIndex) => {
+        let keyboardLetter = document.getElementById(`${letter.textContent}`);
         letter.classList.add('animate-correct');
         letter.addEventListener('animationstart', () => {
             setTimeout(() => {
-                letter.classList.add(getLetterStatus(letter.textContent.toLowerCase(), letterIndex));
+                let letterStatus = getLetterStatus(letter.textContent.toLowerCase(), letterIndex);
+                letter.classList.add(letterStatus);
+                keyboardLetter.classList.add(letterStatus)
             }, 200);
         });
         letter.addEventListener('animationend', () => {
             letter.classList.remove('animate-correct');
         });
     })
-    rowNumber++;
-    letterNumber = 1;
+
+    if(rowNumber+1 == 7) {
+        displayGameLost()
+    } else {
+        rowNumber++;
+    }
     
+    letterNumber = 1;
+    if(isWordCorrect(word)) {
+        displayGameWon()
+    }
 }

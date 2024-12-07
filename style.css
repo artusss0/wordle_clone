@@ -3,11 +3,14 @@ body {
     color: #FFFFFF;
     font-family: 'Arial', sans-serif;
 }
-
+.container {
+    position: relative;
+}
 .baner {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     font-size: 1.5rem;
     line-height: 0.3;
     text-align: right;
@@ -64,11 +67,11 @@ main {
     font-size: 1.8rem;
 }
 .key:hover {
-    background-color: #ddd;
+    background-color: #bbb;
 }
 .special-key {
     font-size: 1.3rem;
-    width: 300px;
+    width: 325px;
     font-weight: bold;
 }
 .key:active {
@@ -83,11 +86,11 @@ main {
     color: #ffffff;
 }
 .letter-misplaced {
-    background-color: #c9b458;
+    background-color: #F7C752;
     color: #ffffff;
 }
 .letter-absent {
-    background-color: #787c7e;
+    background-color:#303030;
     color: #ffffff;
 }
 

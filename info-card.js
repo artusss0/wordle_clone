@@ -17,6 +17,7 @@ function displayGameLost() {
     gameInfo.className = 'game-info';
     gameInfo.innerHTML = `
         <h2>Niestety nie udało się wygrać 😢</h2>
+        <h2>Słowo: ${wordToQuess}</h2>
         <button onclick="restartGame()">Zagraj jeszcze raz</button>
     `;
     gameInfo.style.display = 'block';

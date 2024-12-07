@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
                 document.querySelector(`.row-${rowNumber}`).querySelectorAll('.letter').forEach(letter => {
                     finalWord += letter.textContent;
                 })
-                sendWord(finalWord);
+                sendWord(finalWord.toLowerCase());
             } else if (!key.classList.contains('special-key')) {
                 addLetter(key.textContent);
             }
@@ -41,13 +41,15 @@ function removeLetter() {
 }
 
 function sendWord(word) {
-    if(word.length !== 5) {
-        const currentRow = document.querySelector(`.row-${rowNumber}`);
-        console.log(currentRow)
+    const currentRow = document.querySelector(`.row-${rowNumber}`);
+    if(word.length !== 5 || !checkIfWordExist(word)) {
         currentRow.classList.add('animateWrong');
         currentRow.addEventListener('animationend', () => {
             currentRow.classList.remove('animateWrong');
         });
         return;
+    }
+    if(isWordCorrect) {
+        
     }
 }

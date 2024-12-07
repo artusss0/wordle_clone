@@ -1,0 +1,90 @@
+body {
+    background-color: #121213;
+    color: #FFFFFF;
+    font-family: 'Arial', sans-serif;
+}
+.baner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+.baner h1{
+    font-size: 4rem;
+}
+.baner img{
+    width: 5rem;
+
+}
+main {
+    margin: 0 auto;
+    display: grid;
+    grid-auto-columns: 5;
+    gap: 10px;
+    align-content: center;
+    width: fit-content;
+}
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.letter {
+    width: 75px;
+    height: 75px;
+    border: 3px solid #3A3A3C;
+}
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+.key {
+    font-weight: 600;
+    width: 60px;
+    height: 80px;
+    margin: 3px;
+    font-size: 18px;
+    border: none;
+    background-color: #818384;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.8rem;
+}
+
+.key:hover {
+    background-color: #ddd;
+}
+
+.special-key {
+    font-size: 1.3rem;
+    width: 100px;
+    font-weight: bold;
+}
+
+.key:active {
+    background-color: #bbb;
+}
+
+.letter-correct {
+    background-color: #6aaa64; 
+    color: #ffffff;
+}
+
+.letter-misplaced {
+    background-color: #c9b458;
+    color: #ffffff;
+}
+
+.letter-absent {
+    background-color: #787c7e;
+    color: #ffffff;
+}
